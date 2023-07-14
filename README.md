@@ -8,7 +8,7 @@ First of all you need to build the head of course, for that refer to inmoov.fr.
 This project consists of the actual head and the shoulder/neck part, so the head can stand by itself.
 It controls six servos in total, 2 (MG996r or aquivalent) for rolling the head, 1 (HS-805BB or ...) for the pitch, 1 (HS-805BB) for the yaw, 
 and two (sg90) for the eyes vertical and horizontal movement.
-In one of the eyes i incooperated one USB-WebCam, i used a Hercules Twist HD, you could any other usb webcam, but then youll need to
+In one of the eyes i incooperated one USB-WebCam, i used a Hercules Twist HD, you could use any other usb webcam, but then youll need to
 change the 3d-model for the eyes from the inmoov.fr website. If you want to use an original Raspberry Pi Camera, thats also cool,
 there are 3d Models for that, but then you need to adjust the CSC.py code to use it, which shouldn't be that hard :-)
 
