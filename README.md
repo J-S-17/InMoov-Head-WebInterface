@@ -15,8 +15,8 @@ there are 3d Models for that, but then you need to adjust the CSC.py code to use
 After connecting all the servos to the Raspbery Pi (just connect all Power and GND lanes from the servos, connect them to a powerfull power supply,
 GND from the powersupply also with the Pi, and the PWM-pins of each servo to a GPIO-pin you like, don't forget to set them in the CSC.py code)
 You need to setup the Raspberry.
-For that either refer to the indepth documentation i wrote (Dokumentation.pdf), if you can read german, otherwise just set your Pi as a Hotspot
-download the files, and install following packages for python...
+For that either refer to the indepth documentation i wrote (Dokumentation.pdf), if you can read german, otherwise just set your Pi as a Hotspot,
+download the files, and install following packages for python(3)...
 flask, opencv
 
 since i used the older working principle of flask, you should be able to simply start the project by executing
