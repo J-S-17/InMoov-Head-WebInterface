@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="PI" content="PI">
+		<link rel="icon" href="favicon.ico">
+		<link rel="stylesheet" href="style.css">
+		<title>PI</title>
+		
+	</head>
+	<script>
+	
+	window.onload = function (){
+	s_head_x.value=0; //Werte im beim Neuladen auf null setzen
+	s_head_y.value=0;
+	roll.value=0;
+	}
+	
+	function change(){
+	spanHX.innerText = s_head_x.value; //Werte im HTML updaten auf aktuellen eingestellten wert
+	spanHY.innerText = s_head_y.value;
+	spanR.innerText = roll.value;
+	}
+	
+	
+	function send(number) {		  //abhängig vom aufrufer skriptseitig ein Formular kreeiren und dieses dann versenden
+	var xhttp = new XMLHttpRequest(); //XHR (Xml Http Request) Objekt erstellen. Dieses dient zum senden der Daten
+		
+	jsForm  = new FormData();    
+	
+	if (number==1){
+		data="HeadX:"
+		data+=document.getElementById("s_head_x").value
+		data+=":"+document.getElementById("s_head_x").min
+		data+=":"+document.getElementById("s_head_x").max
+	}
+	
+	else if (number==2) {
+		data="HeadY:"
+		data+=document.getElementById("s_head_y").value
+		data+=":"+document.getElementById("s_head_y").min
+		data+=":"+document.getElementById("s_head_y").max
+	}
+	
+	else if (number==3) {
+		data="Roll:"
+		data+=document.getElementById("roll").value
+		data+=":"+document.getElementById("roll").min
+		data+=":"+document.getElementById("roll").max
+	}
+	
+	else {console.log("FAULT"); return}
+	
+	jsForm.append( "data", data );
+	
+	xhttp.open("POST", "formloader", true);  //initialisiert die Anfrage, mit async=true siehe https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest#send()
+	xhttp.send(jsForm); // sendet die Anfrage und den data via Ajax_Request als formular
+	}
+	
+	
+	
+</script>
+	<body>
+		<header>
+			<a class="ribbon" title="zurück zur Startseite!" href="index.html">
+				<h1>Websteuerung Inmoov Head</h1>
+				<p>Projektarbeitswebsite für das Fach Computertechnik</p>
+			</a>  
+		</header>
+				
+		<main>		
+			
+			
+			<section id="image">
+				<div class="parent">
+					<img src="Head.jpg" width=385px height=447px alt="Head" id="Head">
+					
+					<a href="Augensteuerung.html">
+					<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width=160 height=80 alt="" id="eyeslink">
+					</a>
+					
+					<a href="Mundsteuerung.html">
+					<img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" width=140 height=40 alt="" id="mouthlink">
+					</a>
+					<
+				</div>
+			</section>
+			
+
+			<section class = "projekt">
+				<h2>Einstellungen am Kopf vornehmen</h2>
+				<h3>Servosteuerung</h3><br>
+				<!---<td> <p> S1 </p> </td>  --->
+				
+					<p>
+                    <input type="range" oninput="change()" onchange="send(1)" id="s_head_x" min="-45" max="45" step="1" value ="0" >
+					<span id="spanHX" > 0</span>° in Kopf x-Richtung
+					</p>
+					
+					
+					<p>
+                    <input type="range" oninput="change()" onchange="send(2)" id="s_head_y" min="-45" max="45" step="1" value ="0" >
+					<span id="spanHY"> 0</span>° in Kopf y-Richtung
+					</p>
+					
+					<p>
+                    <input type="range" oninput="change()" onchange="send(3)" id="roll" min="-15" max="15" step="1" value ="0" >
+					<span id="spanR"> 0</span>° seitliche Neigung
+					</p>
+					
+					
+					<p>
+					<img src="Ajax-vergleich.png" height=360px width=450px alt="Schema serverseitige Dynamik"><br><br>
+				</p>
+			</section>
+		</main>
+
+		<footer>
+			<div id = "footer-links">
+				<a href="" title="Kontakt"><img src="img_info.svg" alt="info"></a>
+				<a href="#" title="Sitemap"><img src="img_sitemap.svg" alt="info"></a>
+				<a href="" title="impressum"><img src="img_print.svg" alt="print"></a>
+			</div>
+
+			<div id = "footer-text">
+				Design Template: <a href="http://selfhtml.org">selfhtml.org</a><br>
+				
+			</div>    
+		</footer>  
+			
+	</body>
+	
+</html>

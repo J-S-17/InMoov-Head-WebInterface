@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="PI" content="PI">
+		<link rel="icon" href="favicon.ico">
+		<link rel="stylesheet" href="style.css">
+		<title>PI</title>
+		
+	</head>
+	<script>
+	window.onload = function(){mouth.value=0;}
+	
+	function change(){
+	spanM.innerText = mouth.value; //Werte im HTML updaten auf aktuellen eingestellten wert
+	}
+	function send() {
+	var xhttp = new XMLHttpRequest();
+	
+	jsForm  = new FormData();
+	
+	data="Mouth:"
+	data+=document.getElementById("mouth").value
+	data+=":"+document.getElementById("mouth").min
+	data+=":"+document.getElementById("mouth").max
+	
+	jsForm.append( "data", data );
+		
+	xhttp.open("POST", "formloader", true);  //initialisiert die Anfrage, mit async=true siehe https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest#send()
+	xhttp.send(jsForm); // sendet die Anfrage und den datensatz via Ajax_Request als formular
+	}
+	
+</script>
+	
+	<body>
+		<header>
+			<a class="ribbon" title="zurück zur Startseite!" href="index.html">
+				<h1>Websteuerung Inmoov Head</h1>
+				<p>Projektarbeitswebsite für das Fach Computertechnik</p>
+			</a>  
+		</header>
+				
+		<main>		
+			
+			
+			<section id="image">
+				<div class="parent">
+					<a href="index.html">
+					<img src="Mouth.jpg" width=377px height=230px alt="Head" id="Head">
+					</a>
+					
+				</div>
+			</section>
+			
+
+			<section class = "projekt">
+				<h2>Einstellungen am Kopf vornehmen</h2>
+				<h3>Servosteuerung</h3><br>
+				<!---<td> <p> S1 </p> </td>  --->
+				
+					<p>
+                    <input type="range" oninput="change()" onchange="send()" id="mouth" min="0" max="20" step="1" value ="0" >
+					<span id="spanM"> 0</span>° Mundöffnung
+					</p>
+					<p>
+				</p>
+			</section>
+		</main>
+
+		<footer>
+			<div id = "footer-links">
+				<a href="unterseite_2.html" title="Kontakt"><img src="img_info.svg" alt="info"></a>
+				<a href="#" title="Sitemap"><img src="img_sitemap.svg" alt="info"></a>
+				<a href="unterseite_2.html" title="impressum"><img src="img_print.svg" alt="print"></a>
+			</div>
+
+			<div id = "footer-text">
+				Design Template: <a href="http://selfhtml.org">selfhtml.org</a><br>
+				
+			</div>    
+		</footer>  
+			
+	</body>
+	
+</html>

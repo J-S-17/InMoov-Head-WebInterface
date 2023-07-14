@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="PI" content="PI">
+		<link rel="icon" href="favicon.ico">
+		<link rel="stylesheet" href="style.css">
+		<title>PI</title>
+		
+	</head>
+	<script>
+	window.onload = function(){
+	s_eye_x.value=0;
+	s_eye_y.value=0;
+	}
+	
+	function change(){
+	spanEX.innerText = s_eye_x.value; //Werte im HTML updaten auf aktuellen eingestellten wert
+	spanEY.innerText = s_eye_y.value;
+	}
+	
+	function send(number) {		  //abhängig vom aufrufer skriptseitig ein Formular kreeiren und dieses dann versenden
+	var xhttp = new XMLHttpRequest(); //XHR (Xml Http Request) Objekt erstellen. Dieses dient zum senden der Daten
+		
+	jsForm  = new FormData();    
+	
+	if (number==1){
+		data="EyeX:"
+		data+=document.getElementById("s_eye_x").value
+		data+=":"+document.getElementById("s_eye_x").min
+		data+=":"+document.getElementById("s_eye_x").max
+	}
+	
+	else if (number==2) {
+		data="EyeY:"
+		data+=document.getElementById("s_eye_y").value
+		data+=":"+document.getElementById("s_eye_y").min
+		data+=":"+document.getElementById("s_eye_y").max
+	}
+	
+	else {console.log("FAULT"); return}
+	
+	jsForm.append( "data", data );
+	
+	xhttp.open("POST", "formloader", true);  //initialisiert die Anfrage, mit async=true siehe https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest#send()
+	xhttp.send(jsForm); // sendet die Anfrage und den datensatz via Ajax_Request als formular
+	}
+	
+	
+</script>
+	<body>
+		<header>
+			<a class="ribbon" title="zurück zur Startseite!" href="index.html">
+				<h1>Websteuerung Inmoov Head</h1>
+				<p>Projektarbeitswebsite für das Fach Computertechnik</p>
+			</a>  
+		</header>
+				
+		<main>		
+			
+			
+			<section id="image">
+				
+					<a href="index.html">
+					<img src="Eyes.jpg" width=385 height=183 alt="" id="eyes">
+					</a>
+					
+			</section>
+			
+
+			<section class = "projekt">
+				<h2>Einstellungen am Kopf vornehmen</h2>
+				<h3>Servosteuerung</h3><br>
+				<!---<td> <p> S1 </p> </td>  --->
+				
+					<p>
+                    <input type="range" oninput="change()" onchange="send(1)" id="s_eye_x" min="-45" max="45" step="1" value ="0" >
+					<span id="spanEX">0 </span>° in Augen x-Richtung
+					</p>
+					
+					
+					<p>
+                    <input type="range" oninput="change()" onchange="send(2)" id="s_eye_y" min="-45" max="45" step="1" value ="0" >
+					<span id="spanEY">0</span>° in Augen y-Richtung
+					</p>
+					<p>
+					
+					<div class="parent2">
+					<a href="Webcam.html">
+					<img src="cam.png" width=100 height=100 alt="" id="cam">
+					<img src="opencvlogo.png" width=100 height=100 alt="" id="opencv">
+					</a>
+					
+				</div>
+					
+				</p>
+			</section>
+		</main>
+
+		<footer>
+			<div id = "footer-links">
+				<a href="unterseite_2.html" title="Kontakt"><img src="img_info.svg" alt="info"></a>
+				<a href="#" title="Sitemap"><img src="img_sitemap.svg" alt="info"></a>
+				<a href="unterseite_2.html" title="impressum"><img src="img_print.svg" alt="print"></a>
+			</div>
+
+			<div id = "footer-text">
+				Design Template: <a href="http://selfhtml.org">selfhtml.org</a><br>
+				
+			</div>    
+		</footer>  
+			
+	</body>
+	
+</html>
