@@ -20,7 +20,7 @@ download the files, and install following packages for python(3)...
 flask, opencv
 
 since i used the older working principle of flask, you should be able to simply start the project by executing
-python CSC.py
+"python CSC.py"
 if something is not working or you have any questions, let me know :-)
 
 DISCLAIMER
