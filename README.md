@@ -1,5 +1,6 @@
 # InMoov-Head-WebInterface
-This project creates a WebInterface running on a Raspberry Pi (any version with wifi connectivity will work) to control head movements for the head part of the inmoov.fr Android-robot project.
+This project creates a WebInterface running on a Raspberry Pi (any version with wifi connectivity will work) to control head movements for the head part of the inmoov.fr Android-robot project. It extends the main branch, by the second schoo project, which was to implement a very simple Voice control via the old Google Speech API,
+which is as of my understanding now deprecated. But maybe it will inspire others, and in the future i may update it to use more modern APIs.
 
 This project was a school project, i included the documentation (in german) and presentation for it.
 For understanding the software part, the presentation slides are (i think) very helpful.
