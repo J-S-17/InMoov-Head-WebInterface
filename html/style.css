@@ -167,12 +167,18 @@ footer img {
     grid-row: 1 / 4;
   } 
 
-  #intro,
+  
   .projekt  {
     grid-column: 2 / 4;
     grid-row:    1 / 2;					
   }
-  
+
+	.test {
+		grid-column: 3 / 4;
+		grid-row: 1 / 2;
+	}
+
+
   .spalte {
     grid-row:    2 / 3;					
   }
